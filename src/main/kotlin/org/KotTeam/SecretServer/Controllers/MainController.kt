@@ -1,9 +1,7 @@
 package org.KotTeam.SecretServer.Controllers
 
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.KotTeam.SecretServer.models.User
+import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/api/")
@@ -12,9 +10,12 @@ class UsersResource() {
     @GetMapping(value = arrayOf("/get"))
     fun getUsers() = "aaaaaa"
 
-    @GetMapping(value = arrayOf("/insert/{name}"))
+    @PostMapping(value = arrayOf("/insert/{name}"))
     fun insertUsers(@PathVariable name: String): String {
         return "aaa"
     }
+    @PostMapping(value = arrayOf("/crateUser/"))
+    fun createUser(@RequestBody user: User): String {
+        return "aaa"
+    }
 }
-
