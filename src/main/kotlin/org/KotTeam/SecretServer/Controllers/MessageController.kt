@@ -6,7 +6,7 @@ import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
 
 @RestController
-@RequestMapping("messageController")
+@RequestMapping("messages")
 class MessageController(private val messageService: MessageService) {
     @GetMapping
     fun index() = messageService.all()

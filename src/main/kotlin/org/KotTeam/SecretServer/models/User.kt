@@ -2,8 +2,9 @@ package org.KotTeam.SecretServer.models
 
 import javax.persistence.*
 import com.fasterxml.jackson.annotation.*
+import java.util.LinkedList
 
-@Entity // Указывает на то что этот класс описывает модель данных
+@Entity
 @Table(name = "users")
 data class User(
     @Id

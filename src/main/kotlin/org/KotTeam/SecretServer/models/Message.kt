@@ -10,14 +10,19 @@ data class Message (
     @JsonProperty("id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     val id:Int,
+    @JsonProperty("reciever")
     @Column(name = "reciever")
     val recieverId:Long,
+    @JsonProperty("sender")
     @Column(name = "sender")
     val senderId:Long,
+    @JsonProperty("text")
     @Column(name = "text")
     val messageText :String,
+    @JsonProperty("timestamp")
     @Column(name = "timestamp")
     val timestamp:Long,
+    @JsonProperty("edited")
     @Column(name = "eddited")
     val isEddited:Boolean,
 )
