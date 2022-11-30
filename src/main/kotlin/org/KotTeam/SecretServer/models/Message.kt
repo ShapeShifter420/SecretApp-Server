@@ -9,7 +9,7 @@ data class Message (
     @Id
     @JsonProperty("id")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    val id:Int,
+    val id:Long,
     @JsonProperty("reciever")
     @Column(name = "reciever")
     val recieverId:Long,

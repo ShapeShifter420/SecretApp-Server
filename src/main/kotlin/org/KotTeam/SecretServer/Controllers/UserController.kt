@@ -15,10 +15,10 @@ class ProductsController(private val userService: UserService) {
     @ResponseStatus(HttpStatus.CREATED)
     fun create(@RequestBody user: User) = userService.add(user)
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.FOUND)
     fun read(@PathVariable id: Long) = userService.get(id)
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     fun delete(@PathVariable id: Long) = userService.remove(id)
 }

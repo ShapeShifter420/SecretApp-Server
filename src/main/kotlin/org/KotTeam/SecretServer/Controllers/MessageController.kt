@@ -15,10 +15,10 @@ class MessageController(private val messageService: MessageService) {
     @ResponseStatus(HttpStatus.CREATED)
     fun create(@RequestBody message: Message) = messageService.add(message)
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.FOUND)
-    fun read(@PathVariable id: Long) = messageService.get(id)
+    fun read(@PathVariable id: Long) { messageService.get(id)}
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     fun delete(@PathVariable id: Long) = messageService.remove(id)
 }
