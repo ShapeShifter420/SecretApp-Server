@@ -12,8 +12,9 @@ class QuaueController(private val quaueService: QuaueService) {
     @GetMapping
     fun index() = quaueService.all()
 
-    @GetMapping("/{id}")
-    @ResponseStatus(HttpStatus.FOUND)
-    fun read(@PathVariable id: Long) = quaueService.getForUser(id)
+    @GetMapping("{id}")
+    @ResponseStatus(HttpStatus.OK)
+    fun read(@PathVariable id: Long,@RequestParam token:String) = quaueService.getForUser(id,token)
+
 
 }

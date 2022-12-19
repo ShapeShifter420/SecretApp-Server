@@ -12,11 +12,11 @@ class ProductsController(private val userService: UserService) {
     fun index() = userService.all()
 
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseStatus(HttpStatus.OK)
     fun create(@RequestBody user: User) = userService.add(user)
 
     @GetMapping("/{id}")
-    @ResponseStatus(HttpStatus.FOUND)
+    @ResponseStatus(HttpStatus.OK)
     fun read(@PathVariable id: Long) = userService.get(id)
 
     @DeleteMapping("/{id}")

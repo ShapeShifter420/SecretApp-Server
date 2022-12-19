@@ -12,5 +12,9 @@ data class User(
     @GeneratedValue(strategy = GenerationType.AUTO)
     var id: Long = 0L,
     @Column(name = "name")
-    var name:String = ""
+    var name:String = "",
+    @Column(name = "PublicKey")
+    var pkey:String = "",
+    @Column(name = "token")
+    var token:String = ""
 )
