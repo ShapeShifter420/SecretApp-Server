@@ -11,8 +11,9 @@ import org.springframework.stereotype.Service
 class MessageService(private val messageRepo: MessageRepo,private val quauRepo: QuaueRepo,private val userService: UserService) {
     fun all(): Iterable<Message> = messageRepo.findAll()
 
-    fun get(id: Long,token:String): Message { if (userService.check(id,token))
-        return  messageRepo.findById(id).get()
+    fun get(id: Long,token:String): Message {val message = messageRepo.findById(id).get()
+        if (userService.check(message.recieverId,token))
+        return message
         return Message(0,0,0,"Error for token",0,false)}
     fun add(message: Message): Message {
         val mes = messageRepo.save(message)
