@@ -4,9 +4,9 @@ import org.KotTeam.SecretServer.models.User
 import org.KotTeam.SecretServer.repos.UserRepo
 import org.springframework.stereotype.Service
 
-@Service // Позволяем IoC контейнеру внедрять класс
-class UserService(private val userRepo: UserRepo) { // Внедряем репозиторий в качестве зависимости
-    fun all(): Iterable<User> = userRepo.findAll() // Возвращаем коллекцию сущностей, функциональная запись с указанием типа
+@Service
+class UserService(private val userRepo: UserRepo) {
+    //fun all(): Iterable<User> = userRepo.findAll()
 
     fun get(id: Long): User {val user:User =  userRepo.findById(id).get();
     user.token = "";
@@ -15,7 +15,7 @@ class UserService(private val userRepo: UserRepo) { // Внедряем репо
     fun add(user: User): User = userRepo.save(user)
 
     fun check(id:Long,token:String):Boolean{
-        return (this.get(id).token == token)
+        return (userRepo.findById(id).get().token == token)
     }
     fun remove(id: Long) = userRepo.delete(this.get(id))
 }
