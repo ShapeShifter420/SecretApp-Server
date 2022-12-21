@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.*
 @RestController
 @RequestMapping("users")
 class ProductsController(private val userService: UserService) {
-    @GetMapping
-    fun index() = userService.all()
 
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
