@@ -9,9 +9,6 @@ import org.springframework.web.bind.annotation.*
 @RestController
 @RequestMapping("quaue")
 class QuaueController(private val quaueService: QuaueService) {
-    @GetMapping
-    fun index() = quaueService.all()
-
     @GetMapping("{id}")
     @ResponseStatus(HttpStatus.OK)
     fun read(@PathVariable id: Long,@RequestParam token:String) = quaueService.getForUser(id,token)
